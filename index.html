@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>代謝 QUICK — 啟動你的代謝引擎</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #2d7a4f;
+    --primary-dark: #1a5c35;
+    --accent: #e8453c;
+    --accent-warm: #f5a623;
+    --bg-light: #f8f5f0;
+    --bg-warm: #fdf6ee;
+    --text-dark: #2c2c2c;
+    --text-mid: #555;
+    --text-light: #888;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+    --radius: 16px;
+    --max-w: 760px;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.8;
+  }
+
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+  /* ── Section base ── */
+  section { padding: 60px 0; }
+  .section-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: rgba(45,122,79,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: var(--text-mid);
+    margin-bottom: 32px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(160deg, #1a5c35 0%, #2d7a4f 60%, #3a9d62 100%);
+    color: var(--white);
+    padding: 80px 0 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #c8f0d8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+  }
+  .hero-title {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .hero-title .highlight { color: #ffe066; }
+  .hero-sub {
+    font-size: 17px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+  .hero-quote {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border-left: 3px solid #ffe066;
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #e8f8e9;
+    text-align: left;
+    max-width: 520px;
+  }
+  .hero-cta-wrap {
+    margin-top: 36px;
+  }
+  .btn-hero {
+    display: inline-block;
+    background: #ffe066;
+    color: #1a5c35;
+    font-size: 17px;
+    font-weight: 900;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(255,224,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,224,102,0.5); }
+  .btn-sub { display: block; margin-top: 14px; color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: none; }
+  .btn-sub:hover { color: #fff; }
+
+  /* ── Pain Points ── */
+  .pain { background: var(--white); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pain-card {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid #ede9e3;
+    transition: border-color 0.2s;
+  }
+  .pain-card:hover { border-color: var(--primary); }
+  .pain-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .pain-text strong { display: block; font-size: 14px; color: var(--text-dark); margin-bottom: 2px; }
+  .pain-text small { font-size: 12px; color: var(--text-light); }
+  .pain-divider {
+    background: var(--bg-warm);
+    border-left: 4px solid var(--accent);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin-top: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.7;
+  }
+
+  /* ── Ingredients ── */
+  .ing { background: var(--bg-warm); }
+  .ing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .ing-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary);
+    transition: transform 0.2s;
+  }
+  .ing-card:hover { transform: translateY(-3px); }
+  .ing-emoji { font-size: 28px; margin-bottom: 10px; }
+  .ing-name { font-size: 17px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
+  .ing-role { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .ing-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+  .ing-summary {
+    text-align: center;
+    margin-top: 28px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    box-shadow: var(--shadow);
+  }
+
+  /* ── Benefits ── */
+  .ben { background: var(--white); }
+  .ben-list { display: flex; flex-direction: column; gap: 14px; }
+  .ben-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 16px 20px;
+    border: 1px solid #ede9e3;
+  }
+  .ben-check {
+    width: 36px; height: 36px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .ben-text { font-size: 14px; }
+  .ben-from { font-size: 13px; color: var(--text-light); }
+  .ben-from::before { content: '→ '; color: var(--primary); font-weight: 700; }
+  .ben-note {
+    text-align: center;
+    margin-top: 24px;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-dark);
+  }
+
+  /* ── Trust ── */
+  .trust { background: var(--bg-warm); }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .trust-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .trust-icon { font-size: 32px; margin-bottom: 10px; }
+  .trust-title { font-size: 14px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
+  .trust-desc { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+  .trust-story {
+    margin-top: 28px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    box-shadow: var(--shadow);
+    border-top: 3px solid var(--accent-warm);
+  }
+  .trust-story strong { color: var(--accent-warm); }
+
+  /* ── Pricing ── */
+  .pricing { background: linear-gradient(160deg, #1a5c35, #2d7a4f); color: var(--white); }
+  .pricing .section-label { background: rgba(255,255,255,0.15); color: #c8f0d8; }
+  .pricing .section-title, .pricing .section-sub { color: var(--white); }
+  .pricing .section-sub { opacity: 0.85; }
+  .price-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    color: var(--text-dark);
+  }
+  .price-tag {
+    display: inline-block;
+    background: var(--bg-warm);
+    color: var(--text-mid);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+  .price-main {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .price-unit { font-size: 15px; color: var(--text-mid); font-weight: 500; margin-bottom: 16px; }
+  .price-save {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+  .price-divider {
+    width: 100%;
+    height: 1px;
+    background: #eee;
+    margin: 22px 0;
+  }
+  .price-gifts { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .price-gifts li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-mid);
+    justify-content: center;
+  }
+  .gift-icon { font-size: 18px; }
+  .btn-buy {
+    display: block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(45,122,79,0.35);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
+  }
+  .btn-buy:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(45,122,79,0.4); }
+  .price-link {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .price-link:hover { color: var(--primary); }
+  .pricing-cta-sub {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+  }
+  .pricing-cta-sub strong { color: #ffe066; }
+
+  /* ── Footer CTA ── */
+  .footer-cta { background: #0f3d22; color: var(--white); padding: 50px 0; text-align: center; }
+  .footer-cta p { font-size: 15px; opacity: 0.75; margin-bottom: 6px; }
+  .footer-cta .big { font-size: 19px; font-weight: 700; opacity: 1; margin-bottom: 24px; line-height: 1.5; }
+
+  /* ── Responsive ── */
+  @media (max-width: 540px) {
+    .hero-title { font-size: 26px; }
+    .section-title { font-size: 22px; }
+    .pain-grid, .ing-grid, .trust-grid { grid-template-columns: 1fr; }
+    .price-main { font-size: 42px; }
+    .ben-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🌿 草本調理 × 根本修護</div>
+    <h1 class="hero-title">
+      代謝卡住？體重降不下來？<br>
+      <span class="highlight">其實是身體在求救 ⚠️</span>
+    </h1>
+    <p class="hero-sub">5大草本成分，從根本啟動代謝＋調整體質</p>
+    <div class="hero-quote">
+      「不是減肥，是讓身體回到會自己燃燒的狀態」
+    </div>
+    <div class="hero-cta-wrap">
+      <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-hero" target="_blank">
+        👉 立即透過 LINE 了解
+      </a>
+      <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-sub" target="_blank">
+        點擊上方按鈕 → 加入好友 → 私訊「我想了解」
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PAIN ═══════════════════════════════ -->
+<section class="pain">
+  <div class="container">
+    <span class="section-label">自我檢測</span>
+    <h2 class="section-title">以下狀況，你中了幾個？</h2>
+    <p class="section-sub">這些不是「胖」，是身體在發出的求救訊號</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🍽️</div>
+        <div class="pain-text">
+          <strong>吃不多還是胖</strong>
+          <small>代謝已經變慢</small>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😴</div>
+        <div class="pain-text">
+          <strong>睡不好、容易累</strong>
+          <small>身體一直在低電量模式</small>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📊</div>
+        <div class="pain-text">
+          <strong>血糖血壓開始不穩</strong>
+          <small>循環變差，身體發警報</small>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🧊</div>
+        <div class="pain-text">
+          <strong>肚子越來越難瘦</strong>
+          <small>內臟脂肪囤積</small>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🌙</div>
+        <div class="pain-text">
+          <strong>下午一定昏昏欲睡</strong>
+          <small>飯後血糖飆太高</small>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💧</div>
+        <div class="pain-text">
+          <strong>手腳容易水腫</strong>
+          <small>淋巴循環不順</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-divider">
+      「不是你不努力，是你的代謝已經變慢了」<br>
+      <small style="color:#888; font-weight:400;">而且——這不是靠少吃就能解決的。</small>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ INGREDIENTS ═══════════════════════════════ -->
+<section class="ing">
+  <div class="container">
+    <span class="section-label">核心配方</span>
+    <h2 class="section-title">5大草本 × 5大作用</h2>
+    <p class="section-sub">從內調整，讓身體自己開始燃燒 🔥</p>
+
+    <div class="ing-grid">
+      <div class="ing-card">
+        <div class="ing-emoji">🔥</div>
+        <div class="ing-name">薑黃</div>
+        <div class="ing-role">抗發炎 ＋ 代謝啟動</div>
+        <div class="ing-desc">把卡住的代謝引擎重新打開，身體開始正常運作</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-emoji">📊</div>
+        <div class="ing-name">肉桂</div>
+        <div class="ing-role">穩定血糖、減少囤積</div>
+        <div class="ing-desc">吃完東西不再全部變成脂肪，血糖不再過山車</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-emoji">💨</div>
+        <div class="ing-name">小茴香</div>
+        <div class="ing-role">改善脹氣與消化</div>
+        <div class="ing-desc">肚子不再脹脹的，腰圍自然變小，穿衣服更有自信</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-emoji">🔄</div>
+        <div class="ing-name">三七</div>
+        <div class="ing-role">促進循環、降低負擔</div>
+        <div class="ing-desc">讓養分送到該去的地方，垃圾順利排出，身體更輕盈</div>
+      </div>
+      <div class="ing-card" style="grid-column: span 2;">
+        <div class="ing-emoji">⚡</div>
+        <div class="ing-name">人參</div>
+        <div class="ing-role">提升能量、啟動代謝</div>
+        <div class="ing-desc">告別下午昏睡，整天都有能量燃燒脂肪，精神變好</div>
+      </div>
+    </div>
+
+    <div class="ing-summary">
+      🌿 5種草本，同一個目標：讓你的身體回到正常運作的狀態
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ BENEFITS ═══════════════════════════════ -->
+<section class="ben">
+  <div class="container">
+    <span class="section-label">感受改變</span>
+    <h2 class="section-title">你會感受到的改變 ↓</h2>
+    <p class="section-sub">這不是短期效果，是身體回到正常運作的自然結果</p>
+
+    <div class="ben-list">
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">血糖穩定</div>
+          <div class="ben-from">吃完不再昏睡，脂肪不容易囤積</div>
+        </div>
+      </div>
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">血壓改善</div>
+          <div class="ben-from">身體負擔減輕，長期風險降低</div>
+        </div>
+      </div>
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">腸胃調順</div>
+          <div class="ben-from">不再脹氣便秘，肚子平坦</div>
+        </div>
+      </div>
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">代謝提升</div>
+          <div class="ben-from">同樣吃得少，但更容易瘦</div>
+        </div>
+      </div>
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">水腫消退</div>
+          <div class="ben-from">臉和手腳不再泡泡的，體態輕盈</div>
+        </div>
+      </div>
+      <div class="ben-row">
+        <div class="ben-check">✔</div>
+        <div>
+          <div class="ben-text">睡眠變好</div>
+          <div class="ben-from">晚上睡得著，白天代謝才跟得上</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ben-note">
+      ✨ 這不是短期效果，是身體回到正常運作後的自然結果
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ TRUST ═══════════════════════════════ -->
+<section class="trust">
+  <div class="container">
+    <span class="section-label">為什麼選擇我們</span>
+    <h2 class="section-title">為什麼選代謝 QUICK？</h2>
+    <p class="section-sub">我們只做一件事：讓你的身體回到正常運作</p>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🌿</div>
+        <div class="trust-title">古法草本配方</div>
+        <div class="trust-desc">傳承漢醫智慧，5種草本經過科學配比，不是隨便混的</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🧪</div>
+        <div class="trust-title">無化學負擔</div>
+        <div class="trust-desc">不含西藥、不含利尿劑、不含禁用添加物</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📅</div>
+        <div class="trust-title">日常可長期調理</div>
+        <div class="trust-desc">不是激進減肥法，是每天2顆的溫和調理</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">💼</div>
+        <div class="trust-title">專為現代壓力族設計</div>
+        <div class="trust-desc">久坐、熬夜、外食族的最強後援</div>
+      </div>
+    </div>
+
+    <div class="trust-story">
+      從配方研發到成品，我們花了很長時間把關。<br>
+      目標只有一個：<strong>做一款我們自己也敢天天吃的產品。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PRICING ═══════════════════════════════ -->
+<section class="pricing">
+  <div class="container">
+    <span class="section-label">限時優惠</span>
+    <h2 class="section-title">🔥 現在開始調整</h2>
+    <p class="section-sub">比三個月後後悔更值得</p>
+
+    <div class="price-box">
+      <div class="price-tag">原價 $1,680</div>
+      <div class="price-main">$1,280</div>
+      <div class="price-unit">單盒體驗組</div>
+      <div class="price-save">👆 立省 $400</div>
+
+      <div class="price-divider"></div>
+
+      <ul class="price-gifts">
+        <li><span class="gift-icon">🎁</span> 飲食建議電子手冊一份</li>
+        <li><span class="gift-icon">💬</span> 1對1 LINE 健康諮詢</li>
+      </ul>
+
+      <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-buy" target="_blank">
+        👉 立即透過 LINE 下單
+      </a>
+      <a href="https://line.me/R/ti/p/@938nzmjr" class="price-link" target="_blank">
+        🔗 https://line.me/R/ti/p/@938nzmjr
+      </a>
+      <p style="font-size:12px; color:#aaa; margin-top:12px;">
+        加入好友後，私訊「我想了解」即可開始 👆
+      </p>
+    </div>
+
+    <div class="pricing-cta-sub">
+      「你的身體不會騙人。它現在發出的訊號，<br>
+      <strong>就是在跟你求救。」</strong><br><br>
+      「問題是——你要現在聽，<br>還是等更嚴重的時候？」
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER CTA ═══════════════════════════════ -->
+<footer class="footer-cta">
+  <div class="container">
+    <p>📍 草本調理 × 根本修護</p>
+    <p class="big">讓身體回到會自己燃燒的狀態</p>
+    <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-hero" target="_blank" style="background:#ffe066; color:#1a5c35; font-size:16px; padding:14px 36px;">
+      👉 點我透過 LINE 了解
+    </a>
+    <p style="margin-top: 18px; font-size: 12px;">代謝 QUICK © 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

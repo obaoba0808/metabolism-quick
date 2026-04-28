@@ -4,41 +4,122 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>代謝Quick｜燃脂代謝 × 穩糖管理</title>
-  <meta name="description" content="代謝Quick：五大核心成分薑黃、小茴香、肉桂、人參、三七，幫助代謝提升、穩定血糖、阻斷吸收、控制食慾與體質調理。" />
+  <meta name="description" content="代謝Quick：薑黃、小茴香、肉桂、人參、三七五大核心成分，幫助代謝提升、穩定血糖、控制食慾與調節體質。" />
   <style>
     :root{--gold:#a66d22;--gold2:#d6a34a;--brown:#5a3215;--cream:#fff8ed;--light:#fffdf8;--red:#d71920;--text:#2b2118}
-    *{box-sizing:border-box} body{margin:0;font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#fffdf8,#fff3dc)}
-    .wrap{max-width:1160px;margin:auto;padding:0 20px}.btn{display:inline-block;background:linear-gradient(180deg,#ff3535,#c40000);color:#fff;text-decoration:none;font-weight:900;font-size:24px;border-radius:18px;padding:18px 42px;box-shadow:0 12px 25px #c4000040}.gold{color:var(--gold)}
-    header{position:sticky;top:0;z-index:9;background:#fffdf8e8;backdrop-filter:blur(10px);border-bottom:1px solid #efd9b5}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:28px;font-weight:900;color:var(--gold)}.nav a{color:var(--brown);text-decoration:none;font-weight:700;margin-left:20px}
-    .hero{padding:60px 0 40px}.heroGrid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}.eyebrow{display:inline-block;background:#f1dfbc;color:var(--brown);padding:8px 18px;border-radius:999px;font-weight:800}.hero h1{font-size:60px;line-height:1.1;margin:20px 0 14px;color:var(--brown)}.hero p{font-size:22px;line-height:1.8}.checks{display:grid;gap:12px;margin:25px 0}.checks div{font-size:22px;font-weight:800}.checks span{color:#d71920;margin-right:8px}.productCard{background:#fff;border:1px solid #ead2a7;border-radius:30px;padding:24px;box-shadow:0 20px 60px #9f6a1b28}.productCard img{width:100%;border-radius:24px;display:block}
-    section{padding:60px 0}.title{text-align:center;margin-bottom:34px}.title h2{font-size:42px;color:var(--brown);margin:0 0 10px}.title p{font-size:20px;margin:0;color:#7b5a35}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.card{background:#fff;border:1px solid #ead2a7;border-radius:22px;padding:24px;box-shadow:0 12px 30px #9f6a1b18}.card h3{font-size:26px;color:var(--gold);margin:0 0 12px}.card p{font-size:17px;line-height:1.7;margin:0}.benefits{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}.benefit{background:#fff;border-radius:20px;padding:18px;text-align:center;border:1px solid #ead2a7}.benefit img,.ingredientHero{width:100%;border-radius:18px;display:block;box-shadow:0 10px 25px #9f6a1b20;margin-bottom:14px}.benefit b{display:block;font-size:38px;color:var(--gold)}.benefit h3{margin:8px 0;color:var(--brown)}
-    .audience{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.audience .card{min-height:170px}.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}.trust .icon{font-size:46px}.offer{background:#fff;border:3px solid var(--gold2);border-radius:30px;padding:36px;text-align:center;box-shadow:0 20px 60px #9f6a1b24}.price{font-size:76px;font-weight:900;color:var(--red);margin:8px 0}.plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}.plan{background:#fff7e8;border:2px solid #e0b05c;border-radius:22px;padding:22px}.stickyCta{position:fixed;left:0;right:0;bottom:0;background:#fffdf8e8;backdrop-filter:blur(10px);border-top:1px solid #ead2a7;padding:10px;z-index:10;text-align:center}.stickyCta .btn{font-size:18px;padding:12px 30px;border-radius:12px}footer{padding:38px 0 90px;text-align:center;color:#6a4a29}
-    @media(max-width:900px){.heroGrid,.plans{grid-template-columns:1fr}.hero h1{font-size:42px}.grid5{grid-template-columns:1fr 1fr}.benefits{grid-template-columns:1fr 1fr}.audience,.trust{grid-template-columns:1fr 1fr}.nav a{display:none}}
-    @media(max-width:520px){.grid5,.benefits,.audience,.trust{grid-template-columns:1fr}.hero h1{font-size:34px}.title h2{font-size:32px}.price{font-size:54px}.btn{font-size:20px;width:100%;text-align:center}}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#fffdf8,#fff3dc)}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1160px;margin:auto;padding:0 20px}
+    .btn{display:inline-block;background:linear-gradient(180deg,#ff3535,#c40000);color:#fff;text-decoration:none;font-weight:900;font-size:24px;border-radius:18px;padding:18px 42px;box-shadow:0 12px 25px #c4000040}
+    .gold{color:var(--gold)}
+    header{position:sticky;top:0;z-index:9;background:#fffdf8e8;backdrop-filter:blur(10px);border-bottom:1px solid #efd9b5}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:28px;font-weight:900;color:var(--gold)}
+    .nav a{color:var(--brown);text-decoration:none;font-weight:700;margin-left:20px}
+    .hero{padding:56px 0 34px}
+    .heroGrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .eyebrow{display:inline-block;background:#f1dfbc;color:var(--brown);padding:8px 18px;border-radius:999px;font-weight:800}
+    .hero h1{font-size:54px;line-height:1.1;margin:18px 0 14px;color:var(--brown)}
+    .hero p{font-size:21px;line-height:1.8}
+    .checks{display:grid;gap:10px;margin:22px 0}.checks div{font-size:21px;font-weight:800}.checks span{color:#d71920;margin-right:8px}
+    .imageCard{background:#fff;border:1px solid #ead2a7;border-radius:28px;padding:12px;box-shadow:0 20px 60px #9f6a1b28}.imageCard img{border-radius:20px}
+    section{padding:56px 0}.title{text-align:center;margin-bottom:30px}.title h2{font-size:42px;color:var(--brown);margin:0 0 10px}.title p{font-size:20px;margin:0;color:#7b5a35}
+    .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.card{background:#fff;border:1px solid #ead2a7;border-radius:22px;padding:24px;box-shadow:0 12px 30px #9f6a1b18}.card h3{font-size:26px;color:var(--gold);margin:0 0 12px}.card p{font-size:17px;line-height:1.7;margin:0}
+    .poster{margin-top:28px}
+    .benefitImages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .benefitImg{background:#fff;border:1px solid #ead2a7;border-radius:22px;overflow:hidden;box-shadow:0 12px 30px #9f6a1b18}
+    .benefitImg h3{font-size:24px;color:var(--brown);margin:16px 18px 4px}.benefitImg p{margin:0 18px 18px;color:#7b5a35;font-weight:700}
+    .audience{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}.trust .icon{font-size:46px}
+    .offer{background:#fff;border:3px solid var(--gold2);border-radius:30px;padding:36px;text-align:center;box-shadow:0 20px 60px #9f6a1b24}.price{font-size:76px;font-weight:900;color:var(--red);margin:8px 0}
+    .plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}.plan{background:#fff7e8;border:2px solid #e0b05c;border-radius:22px;padding:22px}.plan h3{font-size:28px;margin:0 0 8px;color:var(--brown)}
+    .stickyCta{position:fixed;left:0;right:0;bottom:0;background:#fffdf8e8;backdrop-filter:blur(10px);border-top:1px solid #ead2a7;padding:10px;z-index:10;text-align:center}.stickyCta .btn{font-size:18px;padding:12px 30px;border-radius:12px}
+    footer{padding:38px 0 90px;text-align:center;color:#6a4a29}
+    @media(max-width:900px){.heroGrid,.plans{grid-template-columns:1fr}.hero h1{font-size:42px}.grid5{grid-template-columns:1fr 1fr}.benefitImages{grid-template-columns:1fr 1fr}.audience,.trust{grid-template-columns:1fr 1fr}.nav a{display:none}}
+    @media(max-width:520px){.grid5,.benefitImages,.audience,.trust{grid-template-columns:1fr}.hero h1{font-size:34px}.title h2{font-size:32px}.price{font-size:54px}.btn{font-size:20px;width:100%;text-align:center}}
   </style>
 </head>
 <body>
 <header><div class="wrap nav"><div class="logo">代謝Quick</div><nav><a href="#ingredients">成分</a><a href="#benefits">功效</a><a href="#offer">優惠</a></nav></div></header>
+
 <main>
-  <section class="hero"><div class="wrap heroGrid"><div><span class="eyebrow">現代人體質管理配方</span><h1>不是你瘦不下來<br><span class="gold">是代謝卡住了！</span></h1><p>一顆啟動「燃脂 × 穩糖」機制，從代謝、食慾、澱粉吸收三大方向，幫助你找回輕盈狀態。</p><div class="checks"><div><span>✓</span>阻斷澱粉吸收</div><div><span>✓</span>穩定血糖不暴食</div><div><span>✓</span>提升代謝助燃脂</div><div><span>✓</span>控制食慾不嘴饞</div></div><a class="btn" href="#offer">立即搶購 ▶</a></div><div class="productCard"><img src="img/hero.jpg" alt="代謝Quick主視覺"></div></div></section>
+  <section class="hero">
+    <div class="wrap heroGrid">
+      <div>
+        <span class="eyebrow">現代人體質管理配方</span>
+        <h1>不是你瘦不下來<br><span class="gold">是代謝卡住了！</span></h1>
+        <p>一顆啟動「燃脂 × 穩糖」機制，從代謝、食慾、澱粉吸收與體質調理方向，幫助你找回輕盈狀態。</p>
+        <div class="checks">
+          <div><span>✓</span>阻斷澱粉吸收</div>
+          <div><span>✓</span>穩定血糖不暴食</div>
+          <div><span>✓</span>提升代謝助燃脂</div>
+          <div><span>✓</span>控制食慾不嘴饞</div>
+        </div>
+        <a class="btn" href="#offer">立即搶購 ▶</a>
+      </div>
+      <div class="imageCard"><img src="img/hero.jpg" alt="代謝Quick主視覺"></div>
+    </div>
+  </section>
 
-  <section id="ingredients"><div class="wrap"><div class="title"><h2>5大核心成分</h2><p>調整理體質，由內而外健康美麗</p></div><img class="ingredientHero" src="img/ingredient.jpg" alt="五大核心成分：薑黃、小茴香、肉桂、人參、三七"><div class="grid5" style="margin-top:22px"><div class="card"><h3>薑黃</h3><p>抗氧化、促進代謝，幫助身體燃燒效率提升。</p></div><div class="card"><h3>小茴香</h3><p>調整腸胃、改善脹氣，幫助消化與代謝循環。</p></div><div class="card"><h3>肉桂</h3><p>穩定血糖波動，降低暴食與甜食慾望。</p></div><div class="card"><h3>人參</h3><p>補氣提升體力，促進新陳代謝與能量循環。</p></div><div class="card"><h3>三七</h3><p>活血促循環，幫助代謝廢物與體質調整。</p></div></div></div></section>
+  <section id="ingredients">
+    <div class="wrap">
+      <div class="title"><h2>5大核心成分</h2><p>薑黃・小茴香・肉桂・人參・三七，由內調理健康體質</p></div>
+      <div class="grid5">
+        <div class="card"><h3>薑黃</h3><p>抗氧化、促進代謝，幫助身體燃燒效率提升。</p></div>
+        <div class="card"><h3>小茴香</h3><p>調整腸胃、改善脹氣，幫助消化與代謝循環。</p></div>
+        <div class="card"><h3>肉桂</h3><p>幫助穩定血糖波動，降低暴食與甜食慾望。</p></div>
+        <div class="card"><h3>人參</h3><p>補氣提升體力，促進新陳代謝與能量循環。</p></div>
+        <div class="card"><h3>三七</h3><p>活血促循環，幫助代謝廢物與體質調整。</p></div>
+      </div>
+      <div class="imageCard poster"><img src="img/ingredient.jpg" alt="五大核心成分：薑黃、小茴香、肉桂、人參、三七"></div>
+    </div>
+  </section>
 
-  <section id="benefits"><div class="wrap"><div class="title"><h2>7大功效 全面啟動</h2><p>代謝升級，健康好體質</p></div><div class="benefits">
-  <div class="benefit"><img src="img/m1.jpg" alt="加速代謝"><b>1</b><h3>加速代謝</h3><p>消耗更多卡路里</p></div>
-  <div class="benefit"><img src="img/m2.jpg" alt="穩定血糖"><b>2</b><h3>穩定血糖</h3><p>減少暴食嘴饞</p></div>
-  <div class="benefit"><img src="img/m3.jpg" alt="阻斷吸收"><b>3</b><h3>阻斷吸收</h3><p>降低熱量堆積</p></div>
-  <div class="benefit"><img src="img/m4.jpg" alt="燃脂提升"><b>4</b><h3>燃脂提升</h3><p>提高燃脂效率</p></div>
-  <div class="benefit"><img src="img/m5.jpg" alt="控制食慾"><b>5</b><h3>控制食慾</h3><p>自然減少進食量</p></div>
-  <div class="benefit"><img src="img/m6.jpg" alt="調節體質"><b>6</b><h3>調節體質</h3><p>打造易瘦體質</p></div>
-</div></div></div></section>
+  <section id="benefits">
+    <div class="wrap">
+      <div class="title"><h2>6大重點功效</h2><p>代謝升級，打造健康好體質</p></div>
+      <div class="benefitImages">
+        <div class="benefitImg"><img src="img/m1.jpg" alt="加速代謝"><h3>1 加速代謝</h3><p>提升基礎代謝率，消耗更多卡路里。</p></div>
+        <div class="benefitImg"><img src="img/m2.jpg" alt="穩定血糖"><h3>2 穩定血糖</h3><p>平穩血糖波動，減少暴食與嘴饞。</p></div>
+        <div class="benefitImg"><img src="img/m3.jpg" alt="阻斷吸收"><h3>3 阻斷吸收</h3><p>減少澱粉吸收，降低熱量堆積。</p></div>
+        <div class="benefitImg"><img src="img/m4.jpg" alt="燃脂提升"><h3>4 燃脂提升</h3><p>促進脂肪分解，提高燃脂效率。</p></div>
+        <div class="benefitImg"><img src="img/m5.jpg" alt="控制食慾"><h3>5 控制食慾</h3><p>延長飽足感，自然減少進食量。</p></div>
+        <div class="benefitImg"><img src="img/m6.jpg" alt="調節體質"><h3>6 調節體質</h3><p>由內調理，養成易瘦健康體質。</p></div>
+      </div>
+    </div>
+  </section>
 
   <section><div class="wrap"><div class="title"><h2>適合這樣的你</h2><p>外食族、甜食族、減肥卡關族、忙碌上班族</p></div><div class="audience"><div class="card"><h3>外食族</h3><p>油膩重口味，飲食不均衡。</p></div><div class="card"><h3>甜食控</h3><p>愛吃甜點飲料，糖分攝取過多。</p></div><div class="card"><h3>減肥卡關</h3><p>努力節食運動，體重停滯不動。</p></div><div class="card"><h3>忙碌上班族</h3><p>久坐壓力大，代謝自然下降。</p></div></div></div></section>
 
   <section><div class="wrap"><div class="title"><h2>安心有保障</h2><p>嚴格把關，吃得安心</p></div><div class="trust"><div class="card"><div class="icon">✓</div><h3>SGS檢驗</h3><p>重金屬、微生物檢驗合格</p></div><div class="card"><div class="icon">🇹🇼</div><h3>台灣製造</h3><p>品質安心可靠</p></div><div class="card"><div class="icon">🏭</div><h3>GMP工廠</h3><p>符合標準生產環境</p></div><div class="card"><div class="icon">🌿</div><h3>無添加西藥</h3><p>安心調整體質</p></div></div></div></section>
 
-  <section id="offer"><div class="wrap"><div class="offer"><h2>限時體驗價</h2><p>原價 <s>$1,980</s></p><div class="price">$990<span style="font-size:24px"> / 盒</span></div><a class="btn" href="https://lin.ee/你的LINE連結">立即搶購 ▶</a><div class="plans"><div class="plan"><h3>買2盒送1盒</h3><p>平均 $660 / 盒</p></div><div class="plan"><h3>買3盒送2盒</h3><p>平均 $594 / 盒</p></div></div><p style="margin-top:22px;color:#8a5a21">數量有限，售完為止｜下單後1-2天出貨</p></div></div></section>
+  <section id="offer">
+    <div class="wrap">
+      <div class="offer">
+        <h2>限時體驗價</h2>
+        <p>原價 <s>$1,980</s></p>
+        <div class="price">$1,280<span style="font-size:24px"> / 盒</span></div>
+        <p style="color:#d71920;font-weight:bold;">🔥 今日下單現省 $700</p>
+        <p style="color:#a66d22;font-weight:bold;">體質調整型燃脂配方｜長期調理更有效</p>
+        <a class="btn" href="https://lin.ee/你的LINE連結">立即搶購 ▶</a>
+        <div class="plans">
+          <div class="plan">
+            <h3>單盒體驗組</h3>
+            <p style="font-size:22px;font-weight:bold;color:#d71920;">$1,280 / 盒</p>
+            <p style="color:#a66d22;font-weight:bold;">適合第一次體驗</p>
+          </div>
+          <div class="plan">
+            <h3>買3盒送1盒</h3>
+            <p style="font-size:22px;font-weight:bold;color:#d71920;">平均 $960 / 盒</p>
+            <p style="color:#a66d22;font-weight:bold;">🔥 現省 $1,280（等於多拿一盒）</p>
+          </div>
+        </div>
+        <p style="margin-top:22px;color:#8a5a21">數量有限，售完為止｜下單後1-2天出貨</p>
+      </div>
+    </div>
+  </section>
 </main>
+
 <div class="stickyCta"><a class="btn" href="#offer">立即看優惠</a></div>
 <footer><div class="wrap">© 2026 代謝Quick. 本頁面為商品銷售頁範本，請依實際法規與商品資訊調整文案。</div></footer>
 </body>

@@ -57,6 +57,70 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "代謝 QUICK 是什麼？誰適合吃？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "代謝 QUICK 是一款以草本成分為主的調整體質保健品，適合自覺代謝變慢、體重停滯、容易水腫、精神不濟的成年人。不適合孕婦、哺乳期女性，以及正在服用抗凝血藥物者。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "吃了多久會有感覺？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多數使用者回饋約 2-3 週開始感受到精神變好、水腫減少。穩定效果通常出現在持續服用 1-2 個月後。效果的快慢與個人作息、飲食習慣、體質有關，沒有捷徑，但身體會慢慢回應。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "有副作用嗎？會不會拉肚子？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "代謝 QUICK 以薑黃、肉桂、小茴香、三七、人參等傳統草本為配方，不含瀉藥成分，原則上不會造成腹瀉。剛開始服用時身體可能在適應期，可能輕微腹脹，這是正常反應，通常 3-5 天後會消退。若症狀持續，請停止並私訊 LINE 諮詢。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以跟其他保健食品或藥物一起吃嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "如果你正在服用血糖藥、血壓藥、抗凝血藥物，請先諮詢你的主治醫師再開始服用。草本成分可能與特定藥物產生交互作用，安全第一，服用前先問醫生。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "素食者可以吃嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "代謝 QUICK 膠囊外殼為植物性膠囊，原則上素食者可食用。惟內含人參成分，建議如有嚴格素食限制者購買前先私訊 LINE 確認。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "一盒能吃多久？如何服用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "每日 2 顆，建議飯前 30 分鐘服用。一盒大約為 30 天份量（60 顆）。早上服用可幫助白天代謝啟動，晚上避免太晚吃，以免影響睡眠。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何訂購？有分期嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "請直接加 LINE @938nzmjr，私訊「我想了解」或「我想訂購」，會有專人為你說明。目前提供 ATM 轉帳與匯款，單盒 $1,280（優惠價），原價 $1,680。支援貨到付款（加收手續費）。"
+      }
+    }
+  ]
+}
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -429,6 +493,62 @@
   .pricing .section-label { background: rgba(255,255,255,0.2); color: #ffe066; }
   .pricing .section-title, .pricing .section-sub { color: var(--white); }
   .pricing .section-sub { opacity: 0.9; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--bg-warm); }
+  .faq-list { max-width: 680px; margin: 0 auto; }
+  .faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .faq-q {
+    padding: 18px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-dark);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .faq-q::before { content: '❓'; font-size: 14px; }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after { content: '＋'; margin-left: auto; font-size: 20px; font-weight: 400; color: var(--primary); }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a {
+    padding: 0 24px 20px 24px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-mid);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 16px;
+  }
+  .faq-cta {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+  .faq-cta .btn-buy {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  .faq-cta .btn-buy:hover { background: var(--primary-dark); }
+
   .price-box {
     background: var(--white);
     border-radius: var(--radius-lg);
@@ -756,6 +876,65 @@
     <div class="trust-story">
       從配方研發到成品，我們花了很長時間把關。<br><br>
       <strong>目標只有一個：做一款我們自己也敢天天吃的產品。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="section-label">常見問題</span>
+    <h2 class="section-title">你可能想知道的</h2>
+    <p class="section-sub">還在猶豫嗎？先看這裡</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Q1：代謝 QUICK 是什麼？誰適合吃？</summary>
+        <div class="faq-a">
+          代謝 QUICK 是一款以草本成分為主的調整體質保健品，適合自覺代謝變慢、體重停滯、容易水腫、精神不濟的成年人。不適合孕婦、哺乳期女性，以及正在服用抗凝血藥物者。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q2：吃了多久會有感覺？</summary>
+        <div class="faq-a">
+          多數使用者回饋約 2-3 週開始感受到精神變好、水腫減少。穩定效果通常出現在持續服用 1-2 個月後。效果的快慢與個人作息、飲食習慣、體質有關，沒有捷徑，但身體會慢慢回應。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q3：有副作用嗎？會不會拉肚子？</summary>
+        <div class="faq-a">
+          代謝 QUICK 以薑黃、肉桂、小茴香、三七、人參等傳統草本為配方，不含瀉藥成分，原則上不會造成腹瀉。剛開始服用時身體可能在「適應期」，可能輕微腹脹，這是正常反應，通常 3-5 天後會消退。若症狀持續，請停止並私訊 LINE 諮詢。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q4：可以跟其他保健食品或藥物一起吃嗎？</summary>
+        <div class="faq-a">
+          如果你正在服用血糖藥、血壓藥、抗凝血藥物，請先諮詢你的主治醫師再開始服用。草本成分可能與特定藥物產生交互作用，安全第一，服用前先問醫生。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q5：素食者可以吃嗎？</summary>
+        <div class="faq-a">
+          代謝 QUICK 膠囊外殼為植物性膠囊，原則上素食者可食用。惟內含人參成分，建議如有嚴格素食限制者購買前先私訊 LINE 確認。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q6：一盒能吃多久？如何服用？</summary>
+        <div class="faq-a">
+          每日 2 顆，建議飯前 30 分鐘服用。一盒大約為 30 天份量（60 顆）。早上服用可幫助白天代謝啟動，晚上避免太晚吃，以免影響睡眠。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q7：如何訂購？有分期嗎？</summary>
+        <div class="faq-a">
+          請直接加 LINE @938nzmjr，私訊「我想了解」或「我想訂購」，會有專人為你說明。目前提供 ATM 轉帳與匯款，單盒 $1,280（優惠價），原價 $1,680。支援貨到付款（加收手續費）。
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-cta">
+      <p>還有其他問題？直接問我們 👇</p>
+      <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-buy" target="_blank">LINE 私訊聊聊</a>
     </div>
   </div>
 </section>

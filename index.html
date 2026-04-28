@@ -67,7 +67,7 @@ section{padding:80px 0;position:relative;overflow:hidden}
 .brand-text p:last-of-type{margin-bottom:0}
 .brand-text strong{color:var(--text);font-weight:700}
 .brand-img-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
-.brand-img-wrap{height:380px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#e8f5e9 0%,#c8e6c9 30%,#a5d6a7 60%,#81c784 100%);position:relative}.brand-img-wrap .deco{font-size:120px;opacity:.25;position:absolute}.brand-img-wrap .deco-1{top:20px;left:20px}.brand-img-wrap .deco-2{bottom:20px;right:20px}.brand-img-inner{text-align:center;z-index:1;position:relative}.brand-img-inner .icon{font-size:64px;display:block;margin-bottom:16px}.brand-img-inner .label{font-size:20px;font-weight:800;color:var(--primary-dark);letter-spacing:3px}.brand-img-inner .sublabel{font-size:13px;color:var(--primary);margin-top:6px;opacity:.7}
+.brand-img-wrap img{width:100%;height:380px;object-fit:cover;display:block}
 .brand-img-wrap::before{content:'';position:absolute;inset:0;border:2px solid rgba(184,134,11,.15);border-radius:var(--radius-lg);pointer-events:none;z-index:1}
 .pain{background:var(--white)}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
@@ -102,7 +102,7 @@ section{padding:80px 0;position:relative;overflow:hidden}
 .transform-body p{margin-bottom:10px}
 .transform-body strong{color:var(--text)}
 .transform-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(145deg,#f5ede3,#ede3d5);min-height:260px;display:flex;align-items:center;justify-content:center}
-.transform-visual{font-size:56px;opacity:.6;font-weight:900;letter-spacing:4px;color:var(--accent)}
+.transform-visual img{width:100%;height:280px;object-fit:cover;display:block}
 .transform-note{margin-top:52px;background:linear-gradient(135deg,var(--primary-light),#c8e6c9);border-radius:var(--radius);padding:28px 36px;text-align:center;font-size:15.5px;font-weight:600;color:var(--primary-dark);box-shadow:var(--shadow-sm);line-height:1.8}
 .trust{background:var(--white);padding:85px 0}
 .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:40px}
@@ -161,7 +161,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 .transform-item{grid-template-columns:1fr;gap:28px;margin-bottom:48px}
 .transform-item:nth-child(even) .transform-visual{order:0}
 .transform-info h3{writing-mode:horizontal-tb;letter-spacing:1px}
-.transform-visual{font-size:36px;padding:40px 20px}
+.transform-visual img{height:220px}
 .trust-grid{grid-template-columns:1fr;gap:16px}
 .price-box{padding:36px 24px}.price-main{font-size:46px}
 .footer-cta .big{font-size:18px}
@@ -207,8 +207,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 <p><strong>不是短期刺激，而是長期陪伴你走向更健康的自己。</strong></p>
 </div>
 <div class="brand-img-wrap">
-<span class="deco deco-1">🌿</span><span class="deco deco-2">🍃</span>
-<div class="brand-img-inner"><span class="icon">🌱</span><div class="label">代謝 QUICK</div><div class="sublabel">草本調理 × 根本修護</div></div>
+<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=450&fit=crop" alt="天然草本成分">
 </div>
 </div>
 </section>
@@ -290,7 +289,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 <p><strong>現在：血糖不再過山車，精神好</strong></p>
 </div>
 </div>
-<div class="transform-visual">📊 血糖穩定</div>
+<div class="transform-visual"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="血糖穩定"></div>
 </div>
 
 <div class="transform-item">
@@ -302,7 +301,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 <p><strong>現在：身體更輕盈、風險降低</strong></p>
 </div>
 </div>
-<div class="transform-visual">💓 循環改善</div>
+<div class="transform-visual"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&h=400&fit=crop" alt="循環改善"></div>
 </div>
 
 <div class="transform-item">
@@ -314,7 +313,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 <p><strong>現在：肚子平坦、穿衣服更有型</strong></p>
 </div>
 </div>
-<div class="transform-visual">💨 腸胃調順</div>
+<div class="transform-visual"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop" alt="腸胃調順"></div>
 </div>
 
 <div class="transform-item">
@@ -326,7 +325,7 @@ details[open] .faq-q::after{content:'\2212';transform:rotate(180deg)}
 <p><strong>現在：整天有精神、代謝提升</strong></p>
 </div>
 </div>
-<div class="transform-visual">⚡ 能量提升</div>
+<div class="transform-visual"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="能量提升"></div>
 </div>
 
 <div class="transform-note">

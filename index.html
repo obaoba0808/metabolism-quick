@@ -10,6 +10,7 @@
   :root {
     --primary: #2d7a4f;
     --primary-dark: #1a5c35;
+    --primary-light: #4caf50;
     --accent: #e8453c;
     --accent-warm: #f5a623;
     --bg-light: #f8f5f0;
@@ -21,7 +22,8 @@
     --shadow: 0 4px 20px rgba(0,0,0,0.08);
     --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
     --radius: 16px;
-    --max-w: 760px;
+    --radius-lg: 24px;
+    --max-w: 800px;
   }
 
   body {
@@ -33,8 +35,26 @@
 
   .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
 
+  /* ── Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate { animation: fadeInUp 0.8s ease-out; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+  .delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+  .delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+
   /* ── Section base ── */
-  section { padding: 60px 0; }
+  section { padding: 70px 0; }
   .section-label {
     display: inline-block;
     font-size: 12px;
@@ -43,28 +63,28 @@
     text-transform: uppercase;
     color: var(--primary);
     background: rgba(45,122,79,0.1);
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     margin-bottom: 16px;
   }
   .section-title {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 900;
     color: var(--text-dark);
     margin-bottom: 12px;
     line-height: 1.4;
   }
   .section-sub {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-mid);
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
-  /* ── Hero ── */
+  /* ── HERO ── */
   .hero {
-    background: linear-gradient(160deg, #1a5c35 0%, #2d7a4f 60%, #3a9d62 100%);
+    background: linear-gradient(135deg, #0f3d22 0%, #1a5c35 30%, #2d7a4f 70%, #3a9d62 100%);
     color: var(--white);
-    padding: 80px 0 70px;
+    padding: 100px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -72,13 +92,27 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 140%;
-    height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255,224,102,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(76,175,80,0.15) 0%, transparent 50%);
     pointer-events: none;
   }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,224,102,0.1);
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+  .hero-content { position: relative; z-index: 1; }
   .hero-badge {
     display: inline-block;
     background: rgba(255,255,255,0.15);
@@ -86,296 +120,363 @@
     color: #c8f0d8;
     font-size: 13px;
     font-weight: 600;
-    padding: 6px 18px;
-    border-radius: 20px;
-    margin-bottom: 28px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    margin-bottom: 30px;
     letter-spacing: 1px;
+    backdrop-filter: blur(10px);
   }
   .hero-title {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 900;
-    line-height: 1.35;
-    margin-bottom: 18px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
   }
-  .hero-title .highlight { color: #ffe066; }
+  .hero-title .highlight { color: #ffe066; display: block; }
   .hero-sub {
-    font-size: 17px;
-    opacity: 0.9;
-    margin-bottom: 12px;
-    line-height: 1.7;
+    font-size: 18px;
+    opacity: 0.95;
+    margin-bottom: 16px;
+    line-height: 1.8;
   }
   .hero-quote {
     display: inline-block;
-    background: rgba(255,255,255,0.12);
-    border-left: 3px solid #ffe066;
-    padding: 14px 22px;
-    border-radius: 8px;
-    font-size: 16px;
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid #ffe066;
+    padding: 16px 24px;
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 12px;
     color: #e8f8e9;
     text-align: left;
-    max-width: 520px;
+    max-width: 540px;
+    backdrop-filter: blur(10px);
   }
-  .hero-cta-wrap {
-    margin-top: 36px;
-  }
+  .hero-cta-wrap { margin-top: 40px; }
   .btn-hero {
     display: inline-block;
-    background: #ffe066;
+    background: linear-gradient(135deg, #ffe066 0%, #f5c842 100%);
     color: #1a5c35;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 900;
-    padding: 16px 40px;
+    padding: 18px 48px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 4px 20px rgba(255,224,102,0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(255,224,102,0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
   }
-  .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,224,102,0.5); }
-  .btn-sub { display: block; margin-top: 14px; color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: none; }
+  .btn-hero:hover { 
+    transform: translateY(-3px) scale(1.02); 
+    box-shadow: 0 12px 40px rgba(255,224,102,0.5); 
+  }
+  .btn-sub { 
+    display: block; 
+    margin-top: 16px; 
+    color: rgba(255,255,255,0.8); 
+    font-size: 14px; 
+    text-decoration: none; 
+  }
   .btn-sub:hover { color: #fff; }
 
-  /* ── Pain Points ── */
+  /* ── PRODUCT IMAGE ── */
+  .product-showcase {
+    background: var(--white);
+    padding: 60px 0;
+    text-align: center;
+  }
+  .product-image {
+    max-width: 500px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    margin: 0 auto 24px;
+    display: block;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .product-caption {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 12px;
+  }
+
+  /* ── PAIN POINTS ── */
   .pain { background: var(--white); }
   .pain-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
   .pain-card {
     background: var(--bg-light);
-    border-radius: 12px;
-    padding: 18px 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    border: 1px solid #ede9e3;
-    transition: border-color 0.2s;
+    border-radius: var(--radius);
+    padding: 24px 18px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
   }
-  .pain-card:hover { border-color: var(--primary); }
+  .pain-card:hover { 
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+  }
   .pain-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 2px;
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
   }
-  .pain-text strong { display: block; font-size: 14px; color: var(--text-dark); margin-bottom: 2px; }
-  .pain-text small { font-size: 12px; color: var(--text-light); }
+  .pain-text strong { display: block; font-size: 15px; color: var(--text-dark); margin-bottom: 4px; }
+  .pain-text small { font-size: 13px; color: var(--text-light); }
   .pain-divider {
-    background: var(--bg-warm);
-    border-left: 4px solid var(--accent);
-    padding: 18px 20px;
-    border-radius: 8px;
-    margin-top: 28px;
-    font-size: 15px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border-left: 5px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-top: 36px;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--accent);
-    line-height: 1.7;
+    line-height: 1.8;
+    box-shadow: var(--shadow);
   }
+  .pain-divider small { display: block; color: var(--text-mid); font-weight: 400; margin-top: 4px; }
 
-  /* ── Ingredients ── */
+  /* ── INGREDIENTS ── */
   .ing { background: var(--bg-warm); }
   .ing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
   .ing-card {
     background: var(--white);
-    border-radius: var(--radius);
-    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+    padding: 28px 20px;
     box-shadow: var(--shadow);
-    border-top: 4px solid var(--primary);
-    transition: transform 0.2s;
+    text-align: center;
+    border-top: 5px solid var(--primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .ing-card:hover { transform: translateY(-3px); }
-  .ing-emoji { font-size: 28px; margin-bottom: 10px; }
-  .ing-name { font-size: 17px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
-  .ing-role { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .ing-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+  .ing-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(45,122,79,0.1), transparent);
+    border-radius: 0 0 0 60px;
+  }
+  .ing-emoji { font-size: 40px; margin-bottom: 14px; display: block; }
+  .ing-name { font-size: 18px; font-weight: 900; color: var(--primary-dark); margin-bottom: 8px; }
+  .ing-role { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; background: rgba(232,69,60,0.1); padding: 4px 12px; border-radius: 20px; display: inline-block; }
   .ing-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
   .ing-summary {
     text-align: center;
-    margin-top: 28px;
-    background: var(--white);
-    border-radius: 12px;
-    padding: 18px;
-    font-size: 14px;
+    margin-top: 36px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ── TRANSFORMATION ── */
+  .transform { background: var(--white); }
+  .transform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .transform-card {
+    background: linear-gradient(135deg, var(--bg-light), var(--white));
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+  .transform-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+  .transform-icon { font-size: 28px; margin-bottom: 10px; }
+  .transform-title { font-size: 16px; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
+  .transform-from { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+  .transform-to { font-size: 13px; color: var(--primary); font-weight: 600; }
+  .transform-note {
+    margin-top: 36px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    font-size: 15px;
     font-weight: 600;
     color: var(--primary-dark);
     box-shadow: var(--shadow);
   }
 
-  /* ── Benefits ── */
-  .ben { background: var(--white); }
-  .ben-list { display: flex; flex-direction: column; gap: 14px; }
-  .ben-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--bg-light);
-    border-radius: 12px;
-    padding: 16px 20px;
-    border: 1px solid #ede9e3;
-  }
-  .ben-check {
-    width: 36px; height: 36px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  .ben-text { font-size: 14px; }
-  .ben-from { font-size: 13px; color: var(--text-light); }
-  .ben-from::before { content: '→ '; color: var(--primary); font-weight: 700; }
-  .ben-note {
-    text-align: center;
-    margin-top: 24px;
-    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-    border-radius: 12px;
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-dark);
-  }
-
-  /* ── Trust ── */
+  /* ── TRUST ── */
   .trust { background: var(--bg-warm); }
   .trust-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .trust-card {
     background: var(--white);
-    border-radius: var(--radius);
-    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
     box-shadow: var(--shadow);
     text-align: center;
+    transition: all 0.3s ease;
   }
-  .trust-icon { font-size: 32px; margin-bottom: 10px; }
-  .trust-title { font-size: 14px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
-  .trust-desc { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+  .trust-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .trust-icon { font-size: 42px; margin-bottom: 14px; }
+  .trust-title { font-size: 16px; font-weight: 900; color: var(--primary-dark); margin-bottom: 8px; }
+  .trust-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
   .trust-story {
-    margin-top: 28px;
+    margin-top: 36px;
     background: var(--white);
-    border-radius: 12px;
-    padding: 22px;
+    border-radius: var(--radius-lg);
+    padding: 28px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-mid);
-    line-height: 1.8;
-    box-shadow: var(--shadow);
-    border-top: 3px solid var(--accent-warm);
+    line-height: 1.9;
+    box-shadow: var(--shadow-lg);
+    border-top: 5px solid var(--accent-warm);
   }
-  .trust-story strong { color: var(--accent-warm); }
+  .trust-story strong { color: var(--accent-warm); font-size: 17px; }
 
-  /* ── Pricing ── */
-  .pricing { background: linear-gradient(160deg, #1a5c35, #2d7a4f); color: var(--white); }
-  .pricing .section-label { background: rgba(255,255,255,0.15); color: #c8f0d8; }
+  /* ── PRICING ── */
+  .pricing { 
+    background: linear-gradient(135deg, #0f3d22 0%, #1a5c35 50%, #2d7a4f 100%);
+    color: var(--white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,224,102,0.1);
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+  .pricing .section-label { background: rgba(255,255,255,0.2); color: #ffe066; }
   .pricing .section-title, .pricing .section-sub { color: var(--white); }
-  .pricing .section-sub { opacity: 0.85; }
+  .pricing .section-sub { opacity: 0.9; }
   .price-box {
     background: var(--white);
-    border-radius: 20px;
-    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    padding: 44px 36px;
     text-align: center;
     box-shadow: var(--shadow-lg);
     color: var(--text-dark);
+    position: relative;
+    z-index: 1;
   }
   .price-tag {
     display: inline-block;
     background: var(--bg-warm);
-    color: var(--text-mid);
+    color: var(--text-light);
     font-size: 14px;
     font-weight: 600;
-    padding: 6px 16px;
+    padding: 6px 18px;
     border-radius: 20px;
     text-decoration: line-through;
     margin-bottom: 8px;
   }
   .price-main {
-    font-size: 52px;
+    font-size: 58px;
     font-weight: 900;
     color: var(--accent);
     line-height: 1;
     margin-bottom: 4px;
   }
-  .price-unit { font-size: 15px; color: var(--text-mid); font-weight: 500; margin-bottom: 16px; }
+  .price-unit { font-size: 15px; color: var(--text-mid); font-weight: 500; margin-bottom: 20px; }
   .price-save {
     display: inline-block;
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent), #c62828);
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
-    padding: 6px 20px;
-    border-radius: 20px;
-    margin-bottom: 22px;
+    padding: 8px 24px;
+    border-radius: 25px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 15px rgba(232,69,60,0.3);
   }
-  .price-divider {
-    width: 100%;
-    height: 1px;
-    background: #eee;
-    margin: 22px 0;
-  }
-  .price-gifts { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .price-divider { width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #eee, transparent); margin: 28px 0; }
+  .price-gifts { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .price-gifts li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 12px;
+    font-size: 15px;
     color: var(--text-mid);
     justify-content: center;
   }
-  .gift-icon { font-size: 18px; }
+  .gift-icon { font-size: 22px; }
   .btn-buy {
     display: block;
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 900;
-    padding: 18px;
+    padding: 20px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 6px 24px rgba(45,122,79,0.35);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(45,122,79,0.4);
+    transition: all 0.3s ease;
     letter-spacing: 1px;
   }
-  .btn-buy:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(45,122,79,0.4); }
-  .price-link {
-    display: block;
-    margin-top: 12px;
-    font-size: 12px;
-    color: var(--text-light);
-    text-decoration: none;
-  }
+  .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(45,122,79,0.5); }
+  .price-link { display: block; margin-top: 14px; font-size: 13px; color: var(--text-light); text-decoration: none; }
   .price-link:hover { color: var(--primary); }
   .pricing-cta-sub {
     text-align: center;
-    margin-top: 28px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.8;
+    margin-top: 40px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.9;
+    position: relative;
+    z-index: 1;
   }
   .pricing-cta-sub strong { color: #ffe066; }
 
-  /* ── Footer CTA ── */
-  .footer-cta { background: #0f3d22; color: var(--white); padding: 50px 0; text-align: center; }
-  .footer-cta p { font-size: 15px; opacity: 0.75; margin-bottom: 6px; }
-  .footer-cta .big { font-size: 19px; font-weight: 700; opacity: 1; margin-bottom: 24px; line-height: 1.5; }
+  /* ── FOOTER CTA ── */
+  .footer-cta { 
+    background: #0a2a18; 
+    color: var(--white); 
+    padding: 60px 0; 
+    text-align: center; 
+  }
+  .footer-cta p { font-size: 15px; opacity: 0.8; margin-bottom: 8px; }
+  .footer-cta .big { font-size: 20px; font-weight: 700; opacity: 1; margin-bottom: 28px; line-height: 1.6; }
 
-  /* ── Responsive ── */
-  @media (max-width: 540px) {
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
     .hero-title { font-size: 26px; }
     .section-title { font-size: 22px; }
-    .pain-grid, .ing-grid, .trust-grid { grid-template-columns: 1fr; }
-    .price-main { font-size: 42px; }
-    .ben-row { flex-wrap: wrap; }
+    .pain-grid, .ing-grid, .trust-grid, .transform-grid { grid-template-columns: 1fr 1fr; }
+    .price-main { font-size: 44px; }
+    .price-box { padding: 32px 24px; }
+    .ing-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .pain-grid, .ing-grid, .trust-grid, .transform-grid { grid-template-columns: 1fr; }
+    .hero { padding: 70px 0 60px; }
+    section { padding: 50px 0; }
   }
 </style>
 </head>
@@ -383,17 +484,17 @@
 
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-badge">🌿 草本調理 × 根本修護</div>
-    <h1 class="hero-title">
-      代謝卡住？體重降不下來？<br>
+  <div class="container hero-content">
+    <div class="hero-badge animate delay-1">🌿 草本調理 × 根本修護</div>
+    <h1 class="hero-title animate delay-2">
+      代謝卡住？體重降不下來？
       <span class="highlight">其實是身體在求救 ⚠️</span>
     </h1>
-    <p class="hero-sub">5大草本成分，從根本啟動代謝＋調整體質</p>
-    <div class="hero-quote">
+    <p class="hero-sub animate delay-3">5大草本成分，從根本啟動代謝＋調整體質</p>
+    <div class="hero-quote animate delay-3">
       「不是減肥，是讓身體回到會自己燃燒的狀態」
     </div>
-    <div class="hero-cta-wrap">
+    <div class="hero-cta-wrap animate delay-3">
       <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-hero" target="_blank">
         👉 立即透過 LINE 了解
       </a>
@@ -404,7 +505,20 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════ PAIN ═══════════════════════════════ -->
+<!-- ═══════════════════════════════ PRODUCT SHOWCASE ═══════════════════════════════ -->
+<section class="product-showcase">
+  <div class="container">
+    <span class="section-label">產品展示</span>
+    <h2 class="section-title">代謝 QUICK</h2>
+    <p class="section-sub">每天2顆，溫和調理重啟代謝</p>
+    
+    <!-- 📸 請將產品圖片放入 images 資料夾並命名為 product.jpg -->
+    <img src="images/product.jpg" alt="代謝 QUICK 產品圖" class="product-image" onerror="this.style.background='linear-gradient(135deg, #e8f5e9, #a5d6a7)'; this.alt='代謝 QUICK'; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iMzgwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZThmNWU5Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjMWE1YyM1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7lm7jpl7Dsi6o8L3RleHQ+PC9zdmc+';">
+    <p class="product-caption">📸 產品示意圖（請替换成实际产品照片）</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PAIN POINTS ═══════════════════════════════ -->
 <section class="pain">
   <div class="container">
     <span class="section-label">自我檢測</span>
@@ -413,42 +527,42 @@
 
     <div class="pain-grid">
       <div class="pain-card">
-        <div class="pain-icon">🍽️</div>
+        <span class="pain-icon">🍽️</span>
         <div class="pain-text">
           <strong>吃不多還是胖</strong>
           <small>代謝已經變慢</small>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">😴</div>
+        <span class="pain-icon">😴</span>
         <div class="pain-text">
           <strong>睡不好、容易累</strong>
-          <small>身體一直在低電量模式</small>
+          <small>身體在低電量模式</small>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">📊</div>
+        <span class="pain-icon">📊</span>
         <div class="pain-text">
-          <strong>血糖血壓開始不穩</strong>
+          <strong>血糖血壓不穩</strong>
           <small>循環變差，身體發警報</small>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">🧊</div>
+        <span class="pain-icon">🧊</span>
         <div class="pain-text">
           <strong>肚子越來越難瘦</strong>
           <small>內臟脂肪囤積</small>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">🌙</div>
+        <span class="pain-icon">🌙</span>
         <div class="pain-text">
-          <strong>下午一定昏昏欲睡</strong>
+          <strong>下午昏昏欲睡</strong>
           <small>飯後血糖飆太高</small>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">💧</div>
+        <span class="pain-icon">💧</span>
         <div class="pain-text">
           <strong>手腳容易水腫</strong>
           <small>淋巴循環不順</small>
@@ -457,8 +571,8 @@
     </div>
 
     <div class="pain-divider">
-      「不是你不努力，是你的代謝已經變慢了」<br>
-      <small style="color:#888; font-weight:400;">而且——這不是靠少吃就能解決的。</small>
+      「不是你不努力，是你的代謝已經變慢了」
+      <small>而且——這不是靠少吃就能解決的。</small>
     </div>
   </div>
 </section>
@@ -472,34 +586,40 @@
 
     <div class="ing-grid">
       <div class="ing-card">
-        <div class="ing-emoji">🔥</div>
+        <span class="ing-emoji">🔥</span>
         <div class="ing-name">薑黃</div>
         <div class="ing-role">抗發炎 ＋ 代謝啟動</div>
         <div class="ing-desc">把卡住的代謝引擎重新打開，身體開始正常運作</div>
       </div>
       <div class="ing-card">
-        <div class="ing-emoji">📊</div>
+        <span class="ing-emoji">📊</span>
         <div class="ing-name">肉桂</div>
         <div class="ing-role">穩定血糖、減少囤積</div>
         <div class="ing-desc">吃完東西不再全部變成脂肪，血糖不再過山車</div>
       </div>
       <div class="ing-card">
-        <div class="ing-emoji">💨</div>
+        <span class="ing-emoji">💨</span>
         <div class="ing-name">小茴香</div>
         <div class="ing-role">改善脹氣與消化</div>
         <div class="ing-desc">肚子不再脹脹的，腰圍自然變小，穿衣服更有自信</div>
       </div>
       <div class="ing-card">
-        <div class="ing-emoji">🔄</div>
+        <span class="ing-emoji">🔄</span>
         <div class="ing-name">三七</div>
         <div class="ing-role">促進循環、降低負擔</div>
         <div class="ing-desc">讓養分送到該去的地方，垃圾順利排出，身體更輕盈</div>
       </div>
-      <div class="ing-card" style="grid-column: span 2;">
-        <div class="ing-emoji">⚡</div>
+      <div class="ing-card">
+        <span class="ing-emoji">⚡</span>
         <div class="ing-name">人參</div>
         <div class="ing-role">提升能量、啟動代謝</div>
         <div class="ing-desc">告別下午昏睡，整天都有能量燃燒脂肪，精神變好</div>
+      </div>
+      <div class="ing-card">
+        <span class="ing-emoji">🌿</span>
+        <div class="ing-name">獨家配方</div>
+        <div class="ing-role">黃金比例 × 協同作用</div>
+        <div class="ing-desc">5種草本經過科學配比，發揮最大效果</div>
       </div>
     </div>
 
@@ -509,60 +629,43 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════ BENEFITS ═══════════════════════════════ -->
-<section class="ben">
+<!-- ═══════════════════════════════ TRANSFORMATION ═══════════════════════════════ -->
+<section class="transform">
   <div class="container">
     <span class="section-label">感受改變</span>
     <h2 class="section-title">你會感受到的改變 ↓</h2>
     <p class="section-sub">這不是短期效果，是身體回到正常運作的自然結果</p>
 
-    <div class="ben-list">
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">血糖穩定</div>
-          <div class="ben-from">吃完不再昏睡，脂肪不容易囤積</div>
-        </div>
+    <div class="transform-grid">
+      <div class="transform-card">
+        <div class="transform-icon">📊</div>
+        <div class="transform-title">血糖穩定</div>
+        <div class="transform-from">吃完昏昏欲睡、脂肪容易囤積</div>
+        <div class="transform-to">→ 血糖不再過山車，精神好</div>
       </div>
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">血壓改善</div>
-          <div class="ben-from">身體負擔減輕，長期風險降低</div>
-        </div>
+      <div class="transform-card">
+        <div class="transform-icon">💓</div>
+        <div class="transform-title">血壓改善</div>
+        <div class="transform-from">身體負擔重、長期風險高</div>
+        <div class="transform-to">→ 身體更輕盈、風險降低</div>
       </div>
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">腸胃調順</div>
-          <div class="ben-from">不再脹氣便秘，肚子平坦</div>
-        </div>
+      <div class="transform-card">
+        <div class="transform-icon">💨</div>
+        <div class="transform-title">腸胃調順</div>
+        <div class="transform-from">脹氣便秘、肚子鼓鼓的</div>
+        <div class="transform-to">→ 肚子平坦、穿衣服更有型</div>
       </div>
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">代謝提升</div>
-          <div class="ben-from">同樣吃得少，但更容易瘦</div>
-        </div>
-      </div>
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">水腫消退</div>
-          <div class="ben-from">臉和手腳不再泡泡的，體態輕盈</div>
-        </div>
-      </div>
-      <div class="ben-row">
-        <div class="ben-check">✔</div>
-        <div>
-          <div class="ben-text">睡眠變好</div>
-          <div class="ben-from">晚上睡得著，白天代謝才跟得上</div>
-        </div>
+      <div class="transform-card">
+        <div class="transform-icon">⚡</div>
+        <div class="transform-title">能量提升</div>
+        <div class="transform-from">下午昏睡、體力差</div>
+        <div class="transform-to">→ 整天有精神、代謝提升</div>
       </div>
     </div>
 
-    <div class="ben-note">
-      ✨ 這不是短期效果，是身體回到正常運作後的自然結果
+    <div class="transform-note">
+      ✨ 這不是短期效果，是身體回到正常運作後的自然結果<br>
+      <small style="color: var(--text-mid); font-weight: 400;">建議持續調理 2-3 個月，讓身體完整修復</small>
     </div>
   </div>
 </section>
@@ -598,8 +701,8 @@
     </div>
 
     <div class="trust-story">
-      從配方研發到成品，我們花了很長時間把關。<br>
-      目標只有一個：<strong>做一款我們自己也敢天天吃的產品。</strong>
+      從配方研發到成品，我們花了很長時間把關。<br><br>
+      <strong>目標只有一個：做一款我們自己也敢天天吃的產品。</strong>
     </div>
   </div>
 </section>
@@ -630,14 +733,14 @@
       <a href="https://line.me/R/ti/p/@938nzmjr" class="price-link" target="_blank">
         🔗 https://line.me/R/ti/p/@938nzmjr
       </a>
-      <p style="font-size:12px; color:#aaa; margin-top:12px;">
+      <p style="font-size:12px; color:#aaa; margin-top:14px;">
         加入好友後，私訊「我想了解」即可開始 👆
       </p>
     </div>
 
     <div class="pricing-cta-sub">
-      「你的身體不會騙人。它現在發出的訊號，<br>
-      <strong>就是在跟你求救。」</strong><br><br>
+      「你的身體不會騙人。<br>
+      它現在發出的訊號，<strong>就是在跟你求救。」</strong><br><br>
       「問題是——你要現在聽，<br>還是等更嚴重的時候？」
     </div>
   </div>
@@ -648,10 +751,10 @@
   <div class="container">
     <p>📍 草本調理 × 根本修護</p>
     <p class="big">讓身體回到會自己燃燒的狀態</p>
-    <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-hero" target="_blank" style="background:#ffe066; color:#1a5c35; font-size:16px; padding:14px 36px;">
+    <a href="https://line.me/R/ti/p/@938nzmjr" class="btn-hero" target="_blank">
       👉 點我透過 LINE 了解
     </a>
-    <p style="margin-top: 18px; font-size: 12px;">代謝 QUICK © 2026</p>
+    <p style="margin-top: 24px; font-size: 12px; opacity: 0.6;">代謝 QUICK © 2026 | 楓華傳播</p>
   </div>
 </footer>
 

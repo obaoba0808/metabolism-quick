@@ -38,12 +38,33 @@ section{padding:68px 0}.title{text-align:center;margin-bottom:34px}.title h2{fon
 @keyframes pop{0%,75%,100%{transform:translateY(0);opacity:1}82%{transform:translateY(-8px);opacity:.9}}
 @media(max-width:900px){.hero{min-height:auto;padding:88px 0;background-position:67% center}.hero:before{background:rgba(255,250,241,.88)}.hero h1{font-size:42px}.grid5,.grid4{grid-template-columns:1fr 1fr}.grid3,.plans{grid-template-columns:1fr}.nav a{display:none}}
 @media(max-width:520px){.hero h1{font-size:35px}.hero p,.checks div{font-size:18px}.title h2{font-size:32px}.grid5,.grid4{grid-template-columns:1fr}.price{font-size:54px}.btn{width:100%;font-size:20px}.floatingSale{display:none}}
+
+.mobileHeroImage{display:none}
+@media(max-width:520px){
+  .hero{
+    min-height:auto;
+    padding:0 0 42px;
+    display:block;
+    background:none;
+  }
+  .hero:before{display:none}
+  .mobileHeroImage{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .hero .wrap{
+    padding-top:24px;
+  }
+}
+
 </style>
 </head>
 <body>
 <header><div class="wrap nav"><div class="logo">代謝Quick</div><nav><a href="#ingredients">成分</a><a href="#benefits">特性</a><a href="#offer">優惠</a><a href="#order">預約</a></nav></div></header>
 
 <section class="hero">
+  <img class="mobileHeroImage" src="img/mobile-hero.jpg" alt="代謝Quick主圖">
   <div class="wrap">
     <div class="heroBox">
       <span class="tag">體質調整型燃脂配方</span>

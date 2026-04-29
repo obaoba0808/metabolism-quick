@@ -1,2 +1,147 @@
-升級爆單版首頁。上傳 index.html 與 img 資料夾到 GitHub Pages 根目錄即可。
-請搜尋並替換：https://lin.ee/你的LINE連結
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>代謝Quick｜體質調整型燃脂配方</title>
+<meta name="description" content="代謝Quick：薑黃、小茴香、肉桂、人參、三七五大核心成分，主打代謝、穩糖、燃脂、控制食慾與調節體質。">
+<style>
+:root{--brown:#4b2610;--brown2:#6b3b17;--gold:#a66d22;--gold2:#d9a348;--cream:#fff7e9;--red:#d71920;--dark:#1f160f;--line:#ead2a7}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;color:var(--dark);background:#fffaf1} img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#ff3a36,#c40000);color:#fff;text-decoration:none;font-weight:900;border-radius:16px;padding:18px 38px;font-size:24px;box-shadow:0 14px 28px #c4000040;border:0;cursor:pointer}
+.btn.gold{background:linear-gradient(180deg,#d9a348,#8b5416)}
+header{position:sticky;top:0;z-index:99;background:#fffdf8e8;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:28px;font-weight:900;color:var(--gold)}.nav a{margin-left:20px;text-decoration:none;color:var(--brown);font-weight:800}
+.hero{position:relative;min-height:760px;display:flex;align-items:center;background:url('img/hero.jpg') right center/cover no-repeat;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,250,241,.98) 0%,rgba(255,250,241,.86) 42%,rgba(255,250,241,.28) 72%,rgba(255,250,241,.03) 100%)}
+.hero .wrap{position:relative;z-index:2}.heroBox{max-width:610px}.tag{display:inline-block;background:#f2dfbb;color:var(--brown);padding:9px 18px;border-radius:999px;font-weight:900}
+.hero h1{font-size:64px;line-height:1.08;margin:20px 0 16px;color:var(--brown)}.hero h1 span{color:var(--gold)}
+.hero p{font-size:22px;line-height:1.75;margin:0 0 20px}.checks{display:grid;gap:10px;margin:22px 0}.checks div{font-size:22px;font-weight:900}.checks b{color:var(--red);margin-right:8px}
+.ctaRow{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.scarcity{margin-top:18px;color:var(--red);font-weight:900;font-size:20px}
+.timer{display:flex;gap:10px;margin:18px 0}.timeBox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;text-align:center;box-shadow:0 10px 25px #9f6a1b18}.timeBox strong{display:block;color:var(--red);font-size:26px}.timeBox small{color:#7b5a35;font-weight:800}
+section{padding:68px 0}.title{text-align:center;margin-bottom:34px}.title h2{font-size:42px;color:var(--brown);margin:0 0 10px}.title p{font-size:20px;color:#7b5a35;margin:0}
+.bar{background:linear-gradient(90deg,#5a3215,#b77a25);color:#fff;padding:18px 0;text-align:center;font-size:24px;font-weight:900}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 12px 30px #9f6a1b18}.card h3{margin:0 0 10px;color:var(--gold);font-size:25px}.card p{margin:0;line-height:1.7;font-size:17px}
+.poster{background:#fff;border:1px solid var(--line);border-radius:26px;padding:12px;box-shadow:0 15px 45px #9f6a1b20;margin-top:28px}.poster img{border-radius:18px}
+.benefitImg{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 12px 30px #9f6a1b18}.benefitImg h3{font-size:24px;margin:16px 18px 6px;color:var(--brown)}.benefitImg p{margin:0 18px 20px;color:#7b5a35;font-weight:800}
+.step .num{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#fff;font-size:24px;font-weight:900;margin-bottom:14px}
+.trust{text-align:center}.trust .icon{font-size:46px}
+.offer{background:#fff;border:3px solid var(--gold2);border-radius:32px;padding:38px;text-align:center;box-shadow:0 20px 60px #9f6a1b28}.price{font-size:76px;color:var(--red);font-weight:900;margin:8px 0}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}.plan{background:#fff7e8;border:2px solid #e0b05c;border-radius:22px;padding:22px}.plan h3{font-size:28px;margin:0 0 10px;color:var(--brown)}
+.proof{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px}.avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(180deg,#f5d897,#a66d22);display:grid;place-items:center;color:#fff;font-weight:900}
+.formBox{background:#fff;border:2px solid var(--gold2);border-radius:26px;padding:28px;box-shadow:0 15px 45px #9f6a1b20}.formBox input,.formBox select{width:100%;padding:15px;border:1px solid var(--line);border-radius:14px;margin:8px 0 14px;font-size:16px}.formBox label{font-weight:900;color:var(--brown)}
+.floatingSale{position:fixed;left:18px;bottom:92px;z-index:90;background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 18px;box-shadow:0 12px 35px #0002;font-weight:900;color:var(--brown);animation:pop 6s infinite}
+.stickyCta{position:fixed;left:0;right:0;bottom:0;background:#fffdf8e8;backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px;z-index:98;text-align:center}.stickyCta .btn{font-size:18px;padding:12px 30px;border-radius:12px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px}.faq summary{font-weight:900;color:var(--brown);cursor:pointer}footer{padding:38px 0 95px;text-align:center;color:#6a4a29}
+@keyframes pop{0%,75%,100%{transform:translateY(0);opacity:1}82%{transform:translateY(-8px);opacity:.9}}
+@media(max-width:900px){.hero{min-height:auto;padding:88px 0;background-position:67% center}.hero:before{background:rgba(255,250,241,.88)}.hero h1{font-size:42px}.grid5,.grid4{grid-template-columns:1fr 1fr}.grid3,.plans{grid-template-columns:1fr}.nav a{display:none}}
+@media(max-width:520px){.hero h1{font-size:35px}.hero p,.checks div{font-size:18px}.title h2{font-size:32px}.grid5,.grid4{grid-template-columns:1fr}.price{font-size:54px}.btn{width:100%;font-size:20px}.floatingSale{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="logo">代謝Quick</div><nav><a href="#ingredients">成分</a><a href="#benefits">功效</a><a href="#offer">優惠</a><a href="#order">預約</a></nav></div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="heroBox">
+      <span class="tag">體質調整型燃脂配方</span>
+      <h1>不是你瘦不下來<br><span>是代謝卡住了！</span></h1>
+      <p>以薑黃、小茴香、肉桂、人參、三七五大植萃，由內調理，啟動燃脂 × 穩糖 × 控食慾管理。</p>
+      <div class="checks">
+        <div><b>✓</b>提升代謝，幫助熱量消耗</div>
+        <div><b>✓</b>穩定血糖，減少暴食嘴饞</div>
+        <div><b>✓</b>控制食慾，養成易瘦體質</div>
+      </div>
+      <div class="timer"><div class="timeBox"><strong id="hh">02</strong><small>小時</small></div><div class="timeBox"><strong id="mm">59</strong><small>分鐘</small></div><div class="timeBox"><strong id="ss">59</strong><small>秒</small></div></div>
+      <div class="ctaRow"><a class="btn" href="#offer">立即看優惠 ▶</a><a class="btn gold" href="#benefits">先看功效</a></div>
+      <div class="scarcity">🔥 今日體驗價 $1,280 / 盒｜買3送1 限量組</div>
+    </div>
+  </div>
+</section>
+
+<div class="bar">外食、甜食、久坐、代謝慢｜從「體質管理」開始調整</div>
+
+<section><div class="wrap"><div class="title"><h2>你是不是也有這些困擾？</h2><p>減肥不是只靠少吃，更要讓身體代謝順起來</p></div><div class="grid4">
+<div class="card"><h3>少吃也卡關</h3><p>節食幾天就沒力，體重卻停滯不動。</p></div><div class="card"><h3>飯後想睡</h3><p>血糖波動大，容易疲倦、嘴饞。</p></div><div class="card"><h3>外食太多</h3><p>澱粉、油脂、糖分攝取容易超標。</p></div><div class="card"><h3>肚子難瘦</h3><p>代謝循環差，脂肪容易囤積。</p></div>
+</div></div></section>
+
+<section id="ingredients"><div class="wrap"><div class="title"><h2>5大核心成分</h2><p>薑黃・小茴香・肉桂・人參・三七，多方位調理</p></div>
+<div class="grid5">
+<div class="card"><h3>薑黃</h3><p>抗氧化、促進代謝，幫助燃燒效率提升。</p></div><div class="card"><h3>小茴香</h3><p>調整腸胃、改善脹氣，幫助消化循環。</p></div><div class="card"><h3>肉桂</h3><p>幫助穩糖，降低暴食與甜食慾望。</p></div><div class="card"><h3>人參</h3><p>補氣提升體力，促進能量循環。</p></div><div class="card"><h3>三七</h3><p>活血促循環，幫助體質調整。</p></div>
+</div><div class="poster"><img src="img/ingredient.jpg" alt="五大核心成分"></div></div></section>
+
+<section id="benefits"><div class="wrap"><div class="title"><h2>6大重點功效</h2><p>從代謝、穩糖、吸收、燃脂、食慾到體質一次管理</p></div><div class="grid3">
+<div class="benefitImg"><img src="img/m1.jpg" alt="加速代謝"><h3>1 加速代謝</h3><p>提升基礎代謝率。</p></div>
+<div class="benefitImg"><img src="img/m2.jpg" alt="穩定血糖"><h3>2 穩定血糖</h3><p>減少暴食與嘴饞。</p></div>
+<div class="benefitImg"><img src="img/m3.jpg" alt="阻斷吸收"><h3>3 阻斷吸收</h3><p>降低熱量堆積。</p></div>
+<div class="benefitImg"><img src="img/m4.jpg" alt="燃脂提升"><h3>4 燃脂提升</h3><p>提高燃脂效率。</p></div>
+<div class="benefitImg"><img src="img/m5.jpg" alt="控制食慾"><h3>5 控制食慾</h3><p>自然減少進食量。</p></div>
+<div class="benefitImg"><img src="img/m6.jpg" alt="調節體質"><h3>6 調節體質</h3><p>養成易瘦健康體質。</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="title"><h2>真實感受分享</h2><p>用情境見證提升信任感</p></div><div class="grid3">
+<div class="proof"><div class="avatar">王</div><div><b>外食族王小姐</b><br>「飯後比較不容易一直想吃甜食。」</div></div>
+<div class="proof"><div class="avatar">林</div><div><b>上班族林小姐</b><br>「搭配飲食後，體態管理更有方向。」</div></div>
+<div class="proof"><div class="avatar">陳</div><div><b>久坐族陳先生</b><br>「每天補充，感覺精神比較穩。」</div></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="title"><h2>3步驟開始體質管理</h2><p>簡單好執行，長期調理更有感</p></div><div class="grid3">
+<div class="card step"><div class="num">1</div><h3>餐前補充</h3><p>建議依產品標示食用，搭配足量飲水。</p></div>
+<div class="card step"><div class="num">2</div><h3>搭配飲食</h3><p>減少高糖高油，維持穩定飲食習慣。</p></div>
+<div class="card step"><div class="num">3</div><h3>持續調理</h3><p>連續補充，幫助身體維持理想狀態。</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="title"><h2>安心有保障</h2><p>嚴格把關，吃得更安心</p></div><div class="grid4 trust">
+<div class="card"><div class="icon">✓</div><h3>SGS檢驗</h3><p>重金屬、微生物檢驗合格</p></div>
+<div class="card"><div class="icon">🇹🇼</div><h3>台灣製造</h3><p>品質安心可靠</p></div>
+<div class="card"><div class="icon">🏭</div><h3>GMP工廠</h3><p>符合標準環境</p></div>
+<div class="card"><div class="icon">🌿</div><h3>無添加西藥</h3><p>安心調整體質</p></div>
+</div></div></section>
+
+<section id="offer"><div class="wrap"><div class="offer">
+<h2>限時體驗價</h2><p>原價 <s>$1,980</s></p><div class="price">$1,280<span style="font-size:24px"> / 盒</span></div>
+<p style="color:#d71920;font-weight:900;font-size:22px">🔥 今日下單現省 $700</p>
+<a class="btn" href="#order">我要預約優惠 ▶</a>
+<div class="plans"><div class="plan"><h3>單盒體驗組</h3><p style="font-size:22px;font-weight:900;color:#d71920">$1,280 / 盒</p><p>適合第一次體驗</p></div><div class="plan"><h3>買3盒送1盒</h3><p style="font-size:22px;font-weight:900;color:#d71920">平均 $960 / 盒</p><p style="color:#a66d22;font-weight:900">現省 $1,280，等於多拿一盒</p></div></div>
+<p style="margin-top:20px;color:#8a5a21;font-weight:800">數量有限，售完為止｜下單後1-2天出貨</p>
+</div></div></section>
+
+<section id="order"><div class="wrap"><div class="title"><h2>立即預約優惠</h2><p>填寫後導向LINE，可直接接客服或自動成交流程</p></div>
+<div class="formBox">
+<label>姓名</label><input id="name" placeholder="請輸入姓名">
+<label>想選擇的方案</label><select id="plan"><option>單盒體驗組 $1,280</option><option>買3送1 平均 $960/盒</option></select>
+<label>聯絡電話</label><input id="phone" placeholder="請輸入手機號碼">
+<button class="btn" onclick="goLine()">送出並加入LINE ▶</button>
+<p style="color:#8a5a21;font-weight:800">※ 記得把程式裡的 LINE 連結換成你的官方帳號連結。</p>
+</div></div></section>
+
+<section class="faq"><div class="wrap"><div class="title"><h2>常見問題</h2></div>
+<details><summary>什麼時候吃？</summary><p>建議依產品包裝標示食用，並搭配足量飲水。</p></details>
+<details><summary>需要搭配飲食嗎？</summary><p>建議搭配均衡飲食與規律作息，效果會更穩定。</p></details>
+<details><summary>多久會有感？</summary><p>每個人體質不同，建議持續補充並觀察自身狀態。</p></details>
+</div></section>
+
+<div class="floatingSale" id="sale">剛剛有人購買了買3送1組 🔥</div>
+<div class="stickyCta"><a class="btn" href="#offer">立即看優惠</a></div>
+<footer><div class="wrap">© 2026 代謝Quick. 本頁面為商品銷售頁範本，請依實際法規與商品資訊調整文案。</div></footer>
+
+<script>
+(function(){
+let end=Date.now()+3*60*60*1000;
+function tick(){let left=Math.max(0,end-Date.now());let h=Math.floor(left/3600000),m=Math.floor(left%3600000/60000),s=Math.floor(left%60000/1000);hh.textContent=String(h).padStart(2,'0');mm.textContent=String(m).padStart(2,'0');ss.textContent=String(s).padStart(2,'0')}
+setInterval(tick,1000);tick();
+const names=['台中 王小姐','高雄 林小姐','新北 陳先生','桃園 黃小姐','台北 張小姐'];const sale=document.getElementById('sale');let i=0;
+setInterval(()=>{sale.textContent=names[i++%names.length]+' 剛下單買3送1組 🔥'},4500);
+})();
+function goLine(){
+  const lineUrl='https://lin.ee/你的LINE連結';
+  const name=document.getElementById('name').value||'未填姓名';
+  const plan=document.getElementById('plan').value;
+  const phone=document.getElementById('phone').value||'未填電話';
+  alert('已收到：'+name+' / '+plan+' / '+phone+'。請接著加入LINE完成訂購。');
+  window.location.href=lineUrl;
+}
+</script>
+</body></html>

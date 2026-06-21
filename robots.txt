@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://obaoba0808.github.io/metabolism-quick/sitemap.xml
+Sitemap: https://metabolism-quick.com/sitemap.xml
